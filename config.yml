@@ -1,0 +1,8 @@
+NLU:
+  de_DE:
+    class: de.dfki.voluprof.RasaNlu
+    host: localhost
+    port: 5005
+    min_confidence: 0.8
+    min_entity_confidence: 0.75
+    converter: src/main/resources/grammars/cplanner/rasaconv

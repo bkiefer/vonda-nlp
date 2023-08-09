@@ -1,0 +1,17 @@
+version: "3.1"
+
+nlu:
+- intent: 'Out_Of_Domain'
+  examples: |
+    - Hast du schon einmal eine andere Sprache gelernt?
+    - Ich habe gestern einen interessanten Artikel über Klimawandel gelesen.
+    - Ich habe gestern einen alten Freund getroffen und wir haben uns stundenlang unterhalten.
+    - Was ist dein Lieblingsfilmgenre und warum?
+    - Wie lange dauert es normalerweise, bis du eine neue Fähigkeit erlernst?
+    - Das Essen in diesem Restaurant ist wirklich köstlich.
+    - Was ist dein Lieblingsbuch und warum?
+    - Wie können wir die Bildungssysteme verbessern, um den Bedürfnissen einer sich schnell verändernden Welt gerecht zu werden?
+    - Die Blumen in meinem Garten blühen wunderschön.
+    - Ich habe gestern eine neue Sportart ausprobiert und es hat mir viel Spaß gemacht.
+    - Die Musik auf diesem Album ist sehr vielseitig und ansprechend.
+    

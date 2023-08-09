@@ -1,0 +1,12 @@
+version: "3.1"
+
+nlu:
+- regex: number
+  examples: |
+    - ein|eins|eine|einer
+    - zwei|drei|vier|fünf|sechs|sieben|acht|neun
+    - elf|zwölf|(drei|vier|fünf|sech|sieb|acht|neun)?zehn
+    - ((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)und)?(dreißig|(zwan|vier|fünf|sech|sieb|acht|neun)zig)
+    - (ers|zwei|drit|vier|fünf|sechs|sieb|ach|neun)te[rn]?
+    - (zehn|elf|zwölf|((drei|vier|fünf|sechs|sieb|acht|neun)zehn))te[rn]?
+    - ((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)und)(dreißig|(zwan|vier|fünf|sech|sieb|acht|neun)zig)ste[rn]?

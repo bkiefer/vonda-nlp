@@ -1,0 +1,233 @@
+version: "3.1"
+
+nlu:
+- intent: 'Command_Start'
+  examples: |
+    - start
+    - los
+    - abspielen
+    - Vorlesung starten
+    - Vorlesung abspielen
+    - weiter
+    - fortfahren
+    - starte die Vorlesung
+    - kannst du die vorlesung starten
+
+- intent: 'Command_Stop'
+  examples: |
+    - stop
+    - anhalten
+    - halt
+    - stoppen
+    - pause
+    - Vorlesung anhalten
+    - Vorlesung stoppen
+    - halte die Vorlesung an
+    - kannst du die vorlesung anhalten
+
+- intent: 'Command_Quit'
+  examples: |
+    - beenden
+    - vorlesung beenden
+    - vorlesung verlassen
+    - verlassen
+    - ende
+    - abbrechen
+    - vorlesung abbrechen
+    - brech die vorlesung ab
+    - kannst du die vorlesung beenden
+
+- intent: 'Command_Jumpslide_Forward'
+  examples: |
+    - gehe [zwei](number) folien nach vorne
+    - springe [drei](number) folien nach vorne
+    - gehe [zwei](number) folien vor
+    - springe [drei](number) folien vor
+    - gehe [zwei](number) slides nach vorne
+    - springe [drei](number) slides nach vorne
+    - gehe [zwei](number) slides vor
+    - springe [drei](number) slides vor
+    - [vier](number) folien nach vorne
+    - [fünf](number) folien nach vorne
+    - [sechs](number) folien vor
+    - [sieben](number) folien vor
+    - [acht](number) slides nach vorne
+    - [neun](number) slides nach vorne
+    - [zehn](number) slides vor
+    - [elf](number) slides vor
+    - folie vor
+    - [eine](number) folie vor
+    - nächste folie
+    - [eine](number) folie vor
+    - [eine](number) folie weiter
+    - nächste slide
+    - [eine](number) slide vor
+    - [eine](number) slide weiter
+    - kannst du [sechs](number) folien nach vorne gehen
+    - kannst du [fünf](number) slides weiter gehen
+
+- intent: 'Command_Jumpslide_Back'
+  examples: |
+    - gehe [eine](number) folie zurück
+    - springe [drei](number) folien zurück
+    - gehe [vier](number) slides zurück
+    - springe [fünf](number) slides zurück
+    - [sechs](number) folien zurück
+    - [sieben](number) folien zurück
+    - [zehn](number) slides zurück
+    - [elf](number) slides zurück
+    - folie zurück
+    - [eine](number) folie zurück
+    - letzte folie nochmal
+    - letzte folie
+    - slide zurück
+    - [eine](number) slide zurück
+    - letzte slide nochmal
+    - letzte slide
+    - kannst du [sechs](number) folien zurück gehen
+    - kannst du [fünf](number) slides zurück
+
+- intent: 'Command_Gotoslide'
+  examples: |
+    - gehe zu folie [eins](number)
+    - springe zu folie [zwei](number)
+    - zurück zu folie [drei](number)
+    - vor zu folie [vier](number)
+    - zu folie [fünf](number)
+    - zu folie nummer [sechs](number)
+    - zu folie [fünf](number) gehen
+    - zu folie nummer [sechs](number) gehen
+    - zu folie [fünf](number) springen
+    - zu folie nummer [sechs](number) springen
+    - vor zu folie [fünf](number)
+    - zurück zu folie nummer [sechs](number)
+    - vor zu folie [fünf](number) gehen
+    - zurück zu folie nummer [sechs](number) gehen
+    - vor zu folie [fünf](number) springen
+    - zurück zu folie nummer [sechs](number) springen
+    - gehe zu slide [eins](number)
+    - springe zu slide [zwei](number)
+    - zurück zu slide [drei](number)
+    - vor zu slide [vier](number)
+    - zu slide [fünf](number)
+    - zu slide nummer [sechs](number)
+    - zu slide [fünf](number) gehen
+    - zu slide nummer [sechs](number) gehen
+    - zu slide [fünf](number) springen
+    - zu slide nummer [sechs](number) springen
+    - vor zu slide [fünf](number)
+    - zurück zu slide nummer [sechs](number)
+    - vor zu slide [fünf](number) gehen
+    - zurück zu slide nummer [sechs](number) gehen
+    - vor zu slide [fünf](number) springen
+    - zurück zu slide nummer [sechs](number) springen
+
+- intent: 'Command_GotoChapter_1'
+  examples: |
+    - neu starten
+    - vorlesung neu starten
+    - vorlesung nochmal starten
+    - von vorne
+    - von vorne beginnen
+    - von vorne starten
+    - nochmal von vorne starten
+    - nochmal neu starten
+    - vorlesung von vorne
+    - vorlesung von vorne starten
+    - an den anfang zurück
+    - von anfang
+    - von anfang an
+    - vorlesung von anfang
+    - vorlesung von anfang an abspielen
+    - zurück zum anfang der vorlesung
+    - zum anfang der vorlesung zurück
+    - starte nochmal von vorne
+    - beginne nochmal von vorne
+    - fang nochmal vorne an
+
+- intent: 'Command_GotoChapter'
+  examples: |
+    - gehe zu Kapitel [eins](number)
+    - springe zu Kapitel [zwei](number)
+    - gehe vor zu Kapitel [drei](number)
+    - springe vor zu Kapitel [vier](number)
+    - gehe zurück zu Kapitel [fünf](number)
+    - springe zurück zu Kapitel [sechs](number)
+    - vor zu Kapitel [sieben](number)
+    - vor zu Kapitel [acht](number)
+    - zurück zu Kapitel [neun](number)
+    - zurück zu Kapitel [zehn](number)
+    - zu Kapitel [elf](number)
+    - zu Kapitel [zwölf](number)
+    - gehe zu Kapitel nummer [eins](number)
+    - springe zu Kapitel nummer [eins](number)
+    - gehe vor zu Kapitel nummer [eins](number)
+    - springe vor zu Kapitel nummer [eins](number)
+    - gehe zurück zu Kapitel nummer [eins](number)
+    - springe zurück zu Kapitel nummer [eins](number)
+    - vor zu Kapitel nummer [eins](number)
+    - vor zu Kapitel nummer [eins](number)
+    - zurück zu Kapitel nummer [eins](number)
+    - zurück zu Kapitel nummer [eins](number)
+    - zu Kapitel nummer [eins](number)
+    - zu Kapitel nummer [eins](number)
+    - Kapitel [zwei](number) starten
+
+- intent: 'Command_JumpChapter_0'
+  examples: |
+    - Kapitel neu starten
+    - Kapitel von vorne
+    - Kapitel von vorne beginnen
+    - Kapitel von vorne starten
+    - Kapitel von anfang
+    - zum anfang des Kapitels
+    - zurück zum anfang des Kapitels
+    - Kapitel nochmal neu starten
+    - Kapitel nochmal von vorne
+    - Kapitel nochmal von vorne beginnen
+    - Kapitel nochmal von vorne starten
+    - Kapitel nochmal von anfang
+    - starte das Kapitel nochmal neu
+    - starte das Kapitel nochmal von vorne
+
+- intent: 'Command_JumpChapter_Forward'
+  examples: |
+    - gehe [drei](number) Kapitel vor
+    - gehe [zwei](number) Kapitel nach vorne
+    - springe [drei](number) Kapitel vor
+    - spring [zwei](number) Kapitel nach vorne
+    - [drei](number) Kapitel vor
+    - [vier](number) Kapitel nach vorne
+    - gehe [sieben](number) Kapitel vor
+    - gehe [vier](number) Kapitel nach vorne
+    - springe [drei](number) Kapitel vor
+    - spring [fünf](number) Kapitel nach vorne
+    - [zwei](number) Kapitel vor
+    - [sechs](number) Kapitel nach vorne
+    - gehe zum nächsten Kapitel
+    - spring zum nächsten Kapitel
+    - nächstes Kapitel
+    - [ein](number) Kapitel vor
+    - [ein](number) Kapitel weiter
+    - Kapitel vor
+    - Kapitel weiter
+    - gehe [ein](number) Kapitel vor
+    - spring [ein](number) Kapitel weiter
+
+- intent: 'Command_JumpChapter_Back'
+  examples: |
+    - gehe [zwei](number) Kapitel zurück
+    - springe [vier](number) Kapitel zurück
+    - [drei](number) Kapitel zurück
+    - gehe [fünf](number) Kapitel zurück
+    - springe [sechs](number) Kapitel zurück
+    - [sieben](number) Kapitel zurück
+    - gehe zum vorigen Kapitel
+    - spring zum vorigen Kapitel
+    - gehe zum vorherigen Kapitel
+    - spring zum vorherigen Kapitel
+    - vorheriges Kapitel
+    - kapitel zurück
+    - [ein](number) Kapitel zurück
+    - zum vorigen Kapitel
+    - zurück zum vorigen Kapitel
