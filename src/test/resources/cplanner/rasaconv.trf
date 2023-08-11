@@ -2,10 +2,14 @@
 
 // by adding the <minEntityConfidence> slot, entities can be filtered,
 // the default is 0.75
+// with <response_selector>, we select the top node, which is risky
 <response_selector> {
 ^ <minEntityConfidence> #mc: -> # ^ <mec>#mc:, # ! <minEntityConfidence>.
 ^ !<minEntityConfidence> ^ !<mec>-> # ^ <mec>div(3,4).
 }
+
+// make sure the result has a proposition, even if it's `top'
+<response_selector> ^ #n: -> #n ^ (top).
 
 // delete unused edges
 <response_selector> -> # ! <response_selector>.

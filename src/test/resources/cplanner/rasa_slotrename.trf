@@ -17,6 +17,6 @@
   #w = concatenate("-", #w).
 }
 
-:Out_Of_Domain ^ :#t -> #t = PossibleQuestion.
+:OutOfDomain ^ :#t -> #t = :PossibleQuestion.
 
 <mec> -> # ! <mec>.

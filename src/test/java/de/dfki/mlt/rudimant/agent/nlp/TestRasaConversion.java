@@ -43,7 +43,7 @@ public class TestRasaConversion {
   private RasaNlu init(Double d) {
     RasaNlu nlu = new RasaNlu();
     Map<String, Object> conf = new HashMap<>();
-    conf.put("converter", "src/test/resources/grammars/cplanner/rasaconv");
+    conf.put("converter", "src/test/resources/cplanner/rasaconv");
     if (d != null) {
       conf.put(RasaNlu.CFG_MINENTITY_CONFINDENCE, d);
     }
