@@ -2,6 +2,7 @@ package de.dfki.mlt.rudimant.agent.nlp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assume.*;
 
 import java.io.File;
 import java.util.HashMap;
@@ -54,13 +55,11 @@ public class TestRasaConversion {
     return nlu;
   }
 
+
   @Test
   public void test() {
-
     RasaNlu nlu = init(null);
-    if (nlu == null) {
-      return; // rasa not available
-    }
+    assumeTrue(nlu != null); // rasa server available?
 
     JSONObject obj = new JSONObject(input);
     DialogueAct res = nlu.convert(obj);
@@ -80,9 +79,7 @@ public class TestRasaConversion {
   @Test
   public void testThresh() {
     RasaNlu nlu = init(null);
-    if (nlu == null) {
-      return; // rasa not available
-    }
+    assumeTrue(nlu != null); // rasa server available?
 
     // reject based on confidence
     DialogueAct res = nlu.analyse("springe kapitel hotel");
@@ -92,9 +89,7 @@ public class TestRasaConversion {
   @Test
   public void testEntityThresh() {
     RasaNlu nlu = init(1.0);
-    if (nlu == null) {
-      return; // rasa not available
-    }
+    assumeTrue(nlu != null); // rasa server available?
 
     // reject based on entity confidence
     DialogueAct res = nlu.analyse("springe zu kapitel acht");
