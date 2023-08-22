@@ -2,7 +2,7 @@ package de.dfki.mlt.rudimant.agent.nlp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assume.*;
+import static org.junit.Assume.assumeTrue;
 
 import java.io.File;
 import java.util.HashMap;
@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import de.dfki.lt.tr.dialogue.cplan.DagNode;
@@ -35,7 +34,6 @@ public class TestRasaConversion {
         + "{\"name\":\"Command_GotoChapter_1\",\"confidence\":0.00010749153443612158}],"
         + " \"response_selector\":{\"all_retrieval_intents\":[],\"default\":{\"response\":{\"responses\":null,\"confidence\":0.0,\"intent_response_key\":null,\"utter_action\":\"utter_None\"},\"ranking\":[]}}}";
 
-
   @BeforeClass
   public static void initTest() {
     DagNode.init(new FlatHierarchy());
@@ -55,18 +53,24 @@ public class TestRasaConversion {
     return nlu;
   }
 
-
   @Test
-  public void test() {
-    RasaNlu nlu = init(null);
-    assumeTrue(nlu != null); // rasa server available?
-
+  public void testConversion() {
+    RasaNlu nlu = new RasaNlu();
+    Map<String, Object> conf = new HashMap<>();
+    conf.put("converter", "src/test/resources/cplanner/rasaconv");
+    nlu.init(new File("."), "de_DE", conf);
     JSONObject obj = new JSONObject(input);
     DialogueAct res = nlu.convert(obj);
     //System.out.println(res);
     assertEquals("7", res.getValue("what"));
+  }
 
-    res = nlu.analyse("vorheriges kapitel");
+  @Test
+  public void testAnalysis() {
+    RasaNlu nlu = init(null);
+    assumeTrue(nlu != null); // rasa server available?
+
+    DialogueAct res = nlu.analyse("vorheriges kapitel");
     assertEquals("-1", res.getValue("what"));
 
     res = nlu.analyse("kapitel zurück");
