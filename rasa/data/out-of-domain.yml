@@ -1,7 +1,7 @@
 version: "3.1"
 
 nlu:
-- intent: 'Out_Of_Domain'
+- intent: 'OutOfDomain'
   examples: |
     - Hast du schon einmal eine andere Sprache gelernt?
     - Ich habe gestern einen interessanten Artikel über Klimawandel gelesen.
@@ -14,4 +14,3 @@ nlu:
     - Die Blumen in meinem Garten blühen wunderschön.
     - Ich habe gestern eine neue Sportart ausprobiert und es hat mir viel Spaß gemacht.
     - Die Musik auf diesem Album ist sehr vielseitig und ansprechend.
-    

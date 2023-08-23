@@ -12,7 +12,7 @@ intents:
   - Command_JumpChapter_0
   - Command_JumpChapter_Forward
   - Command_JumpChapter_Back
-  - Out_Of_Domain
+  - OutOfDomain
 
 entities:
   - number

@@ -5,5 +5,5 @@ if test -z "$1"; then
     docker run -d --rm -p 5005:5005 -v $(pwd):/app rasa/rasa:3.5.14-full run --enable-api --port 5005
 else
     # e.g., for training
-    docker run -it -p 5005:5005 --user $UID:$UID -v $(pwd):/app rasa/rasa:3.5.14-full "$@"
+    docker run --rm --user $UID:$UID -v $(pwd):/app rasa/rasa:3.5.14-full "$@"
 fi
