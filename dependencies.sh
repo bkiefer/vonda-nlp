@@ -1,2 +1,2 @@
 prereqs="git javac mvn"
-githubdeps="vonda~developer"
+githubdeps="vonda~3.0.4"
