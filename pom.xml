@@ -41,4 +41,12 @@
       <version>4.5.13</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>github</id>
+      <url>https://raw.githubusercontent.com/DFKI-MLT/Maven-Repository/main</url>
+    </repository>
+  </repositories>
+
 </project>
