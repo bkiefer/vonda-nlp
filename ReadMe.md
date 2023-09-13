@@ -1,5 +1,7 @@
 # Additional NLP components for the VOnDA dialogue management framework
 
+[![mvn build](https://github.com/bkiefer/vonda-nlp/actions/workflows/maven.yml/badge.svg)](https://github.com/bkiefer/vonda-nlp/actions/workflows/maven.yml)
+
 This repository should evolve into a pool of NLP components that can be used with [VOnDA](https://github.com/bkiefer/vonda), e.g., implementations of the
 `Interpreter` and `Generator` interfaces.
 
