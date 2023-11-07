@@ -85,6 +85,7 @@ public class RasaNlu extends Interpreter {
   @SuppressWarnings("rawtypes")
   @Override
   public boolean init(File configDir, String language, Map config) {
+    name = "rasa_" + language;
     try {
       String host = requireNonNullElse((String)config.get(CFG_RASA_HOST), "localhost");
       int port = requireNonNullElse((Integer)config.get(CFG_RASA_PORT), 5005);
@@ -116,12 +117,12 @@ public class RasaNlu extends Interpreter {
     DialogueAct r = convert(obj);
     if (r != null && r.hasSlot(CONFIDENCE_DAG_SLOT) &&
         Double.parseDouble(r.getValue(CONFIDENCE_DAG_SLOT)) < intent_confidence_threshold) {
-        r = null;
+      r = null;
     }
     if (r == null) {
-      logger.info("No rasa NLU result");
+      logger.info("No {} result for {}", name, text);
     } else {
-      logger.info("rasa: {}", r);
+      logger.info("{} result for {}: {}", name, text, r.toString());
     }
     return r;
   }
