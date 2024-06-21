@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.dfki.mlt</groupId>
   <artifactId>vonda-nlp</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -17,17 +17,7 @@
     <dependency>
       <groupId>de.dfki.mlt</groupId>
       <artifactId>vonda</artifactId>
-      <version>[3.2.2,)</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.googlejavaformat</groupId>
-          <artifactId>google-java-format</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>de.dfki.mlt</groupId>
-          <artifactId>dataviz</artifactId>
-        </exclusion>
-      </exclusions>
+      <version>[3.2.3,)</version>
       <type>jar</type>
     </dependency>
 

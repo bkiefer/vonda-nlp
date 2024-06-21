@@ -1,9 +1,16 @@
 #!/bin/sh
 scdir=`dirname $0`
 cd "$scdir"
+rasaimg='rasa/rasa:3.6.20-full'
 if test -z "$1"; then
-    docker run -d --rm -p 5005:5005 -v $(pwd):/app rasa/rasa:3.5.14-full run --enable-api --port 5005
+    docker run -d --rm -p 5005:5005 -v ./models:/app/models \
+           $rasaimg run --enable-api --port 5005
+    while test -z ""; do
+        docker logs "rasa_ufb" 2>&1 | grep -q 'up and running' &&
+            echo "Rasa server is up and running" && exit 0;
+        sleep 5
+    done
 else
     # e.g., for training
-    docker run --rm --user $UID:$UID -v $(pwd):/app rasa/rasa:3.5.14-full "$@"
+    docker run --rm --user $UID:$UID -v $(pwd):/app $rasaimg "$@"
 fi
