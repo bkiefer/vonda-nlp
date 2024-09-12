@@ -46,31 +46,30 @@ public class RasaNlu extends Interpreter {
    * produced by rasa
    */
   String rasaNLU(String text) {
-    CloseableHttpClient httpclient = HttpClients.createDefault();
+    String jsonResult = null;
+    try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+      // Creating a HttpPost object
+      JSONObject json = new JSONObject();
+      StringEntity params = null;
+      logger.debug(text);
+      json.put("text", text);
 
-    // Creating a HttpPost object
-    JSONObject json = new JSONObject();
-    StringEntity params = null;
-    logger.debug(text);
-    json.put("text", text);
-
-    // Printing the method used
-    String jsonResult = "";
-    try {
+      // Printing the method used
       params = new StringEntity(json.toString(), Charset.forName("UTF-8"));
       // Create a POST object
       HttpPost httppost = new HttpPost(uri);
       httppost.setHeader("Content-type", "application/json");
       httppost.setEntity(params);
       // Executing the request
-      CloseableHttpResponse httpresponse = httpclient.execute(httppost);
-      // Printing the status line
-      if (!isSuccess(httpresponse.getStatusLine().getStatusCode())) {
-        logger.debug("HTTP status: {}", httpresponse.getStatusLine().toString());
-        return null;
+      try (CloseableHttpResponse httpresponse = httpclient.execute(httppost)) {
+        // Printing the status line
+        if (!isSuccess(httpresponse.getStatusLine().getStatusCode())) {
+          logger.debug("HTTP status: {}", httpresponse.getStatusLine().toString());
+          return null;
+        }
+        jsonResult = EntityUtils.toString(httpresponse.getEntity());
+        logger.debug("JSON output: {}", jsonResult);
       }
-      jsonResult = EntityUtils.toString(httpresponse.getEntity());
-      logger.info("JSON output: {}", jsonResult);
     } catch (IOException e) {
       logger.error(e.getMessage());
       return null;
