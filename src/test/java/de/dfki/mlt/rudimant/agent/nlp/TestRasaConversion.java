@@ -47,7 +47,7 @@ public class TestRasaConversion {
       conf.put(RasaNlu.CFG_MINENTITY_CONFINDENCE, d);
     }
     nlu.init(new File("."), "de_DE", conf);
-    if (nlu.rasaNLU("hello.") == null) {
+    if (! nlu.alive()) {
       return null; // rasa not available
     }
     return nlu;
