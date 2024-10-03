@@ -22,7 +22,7 @@ public class RestJsonAnalyser  {
   private static final Logger logger =
       LoggerFactory.getLogger(RestJsonAnalyser.class);
 
-  private URI uri;
+  private String baseuri;
 
   public static final String REST_HOST = "host";
   public static final String REST_PORT = "port";
@@ -39,7 +39,7 @@ public class RestJsonAnalyser  {
    * @return a string representing a JSON object, or null, if no result was
    * produced by rasa
    */
-  public String sendToServer(String text) {
+  public String sendToServer(String text, String relUriPath) {
     String jsonResult = null;
     try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
       // Creating a HttpPost object
@@ -51,7 +51,7 @@ public class RestJsonAnalyser  {
       // Printing the method used
       params = new StringEntity(json.toString(), Charset.forName("UTF-8"));
       // Create a POST object
-      HttpPost httppost = new HttpPost(uri);
+      HttpPost httppost = new HttpPost(baseuri + relUriPath);
       httppost.setHeader("Content-type", "application/json");
       httppost.setEntity(params);
       // Executing the request
@@ -76,11 +76,11 @@ public class RestJsonAnalyser  {
    *  at initialisation time.
    */
   @SuppressWarnings("rawtypes")
-  public boolean initRest(Map config, String path) {
+  public boolean initRest(Map config) {
     try {
       String host = requireNonNullElse((String)config.get(REST_HOST), "localhost");
       int port = requireNonNullElse((Integer)config.get(REST_PORT), 5005);
-      uri = new URI("http://" + host + ":" + port + path);
+      baseuri = "http://" + host + ":" + port;
     } catch (Exception ex) {
       logger.error(ex.getMessage());
       return false;

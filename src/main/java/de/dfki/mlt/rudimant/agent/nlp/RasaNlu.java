@@ -39,13 +39,13 @@ public class RasaNlu extends Interpreter {
     if (config.containsKey(CFG_ALIVE_STRING)) {
       alive_string = (String) config.get(CFG_ALIVE_STRING);
     }
-    boolean ok = rja.initRest(config, "/model/parse");
+    boolean ok = rja.initRest(config);
     return ok && super.init(configDir, language, config);
   }
 
   @Override
   public DialogueAct analyse(String text) {
-    String jsonResult = rja.sendToServer(text);
+    String jsonResult = rja.sendToServer(text, "/model/parse");
     if (jsonResult == null) {
       logger.info("No rasa NLU result");
       return null;
@@ -72,6 +72,6 @@ public class RasaNlu extends Interpreter {
   }
 
   public boolean alive() {
-    return rja.sendToServer("hello.") != null;
+    return rja.sendToServer("hello.", "/model/parse") != null;
   }
 }
