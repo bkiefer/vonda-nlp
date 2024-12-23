@@ -43,13 +43,20 @@ public class RasaNlu extends Interpreter {
     return ok && super.init(configDir, language, config);
   }
 
-  @Override
-  public DialogueAct analyse(String text) {
+  /** Only for test purposes */
+  String rasaNLU(String text) {
     String jsonResult = rja.sendToServer(text, "/model/parse");
     if (jsonResult == null) {
       logger.info("No rasa NLU result");
       return null;
     }
+    return jsonResult;
+  }
+
+
+  @Override
+  public DialogueAct analyse(String text) {
+    String jsonResult = rasaNLU(text);
     JSONObject obj = new JSONObject(jsonResult);
     obj.put("minEntityConfidence", entity_confidence_threshold);
     DialogueAct r = convert(obj);
