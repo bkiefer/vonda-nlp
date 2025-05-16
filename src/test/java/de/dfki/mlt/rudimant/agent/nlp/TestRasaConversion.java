@@ -42,7 +42,7 @@ public class TestRasaConversion {
   private RasaNlu init(Double d) {
     RasaNlu nlu = new RasaNlu();
     Map<String, Object> conf = new HashMap<>();
-    conf.put("converter", "src/test/resources/cplanner/rasaconv");
+    conf.put("converter", "src/main/resources/cplanner/rasaconv");
     if (d != null) {
       conf.put(RasaNlu.CFG_MINENTITY_CONFINDENCE, d);
     }
@@ -57,7 +57,7 @@ public class TestRasaConversion {
   public void testConversion() {
     RasaNlu nlu = new RasaNlu();
     Map<String, Object> conf = new HashMap<>();
-    conf.put("converter", "src/test/resources/cplanner/rasaconv");
+    conf.put("converter", "src/main/resources/cplanner/rasaconv");
     nlu.init(new File("."), "de_DE", conf);
     JSONObject obj = new JSONObject(input);
     DialogueAct res = nlu.convert(obj);

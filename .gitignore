@@ -34,6 +34,6 @@ dependency-reduced-pom.xml
 ontologies
 wech
 compile_prereqs.sh
-rasa/models
-rasa/results
 rasa/.*
+rasa/models/*
+rasa/results/*
