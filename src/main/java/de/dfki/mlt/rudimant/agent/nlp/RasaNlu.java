@@ -57,6 +57,7 @@ public class RasaNlu extends Interpreter {
   @Override
   public DialogueAct analyse(String text) {
     String jsonResult = rasaNLU(text);
+    if (jsonResult == null) return null;
     JSONObject obj = new JSONObject(jsonResult);
     obj.put("minEntityConfidence", entity_confidence_threshold);
     DialogueAct r = convert(obj);
